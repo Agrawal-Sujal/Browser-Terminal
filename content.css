@@ -1,0 +1,139 @@
+/* Premium Glassmorphism Terminal UI */
+#browser-terminal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2147483647; /* absolute max */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 15vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.2s;
+  pointer-events: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#browser-terminal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#browser-terminal-container {
+  width: 100%;
+  max-width: 650px;
+  background: rgba(30, 31, 34, 0.85); /* sleek dark background */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95) translateY(-20px);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#browser-terminal-overlay.active #browser-terminal-container {
+  transform: scale(1) translateY(0);
+}
+
+#browser-terminal-input-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* subtle separator */
+}
+
+#browser-terminal-input-wrapper svg {
+  width: 24px;
+  height: 24px;
+  fill: #8b949e;
+  margin-right: 14px;
+}
+
+#browser-terminal-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+#browser-terminal-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+#browser-terminal-suggestions {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 8px 0;
+  margin: 0;
+  list-style: none;
+}
+
+#browser-terminal-suggestions::-webkit-scrollbar {
+  width: 8px;
+}
+
+#browser-terminal-suggestions::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.browser-terminal-suggestion-item {
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #c9d1d9;
+  transition: background 0.15s ease;
+}
+
+.browser-terminal-suggestion-item.selected,
+.browser-terminal-suggestion-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.browser-terminal-shortcut {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+}
+
+.browser-terminal-badge {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #e5e5e5;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.browser-terminal-badge.site {
+  background: rgba(99, 102, 241, 0.25);
+  color: #c7d2fe;
+}
+
+.browser-terminal-url {
+  font-size: 13px;
+  color: #8b949e;
+  max-width: 50%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

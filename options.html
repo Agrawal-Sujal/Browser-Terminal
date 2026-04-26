@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Browser Terminal Settings</title>
+  <link rel="stylesheet" href="options.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Terminal Settings</h1>
+      <p class="desc">Configure your keyboard shortcuts for quick navigation.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <div class="card-header">
+          <h2>Global Mappings</h2>
+          <button id="add-global-btn" class="btn primary">Add Global</button>
+        </div>
+        <p class="desc">These shortcuts work on any website.</p>
+        <div id="global-mappings-list" class="mappings-list"></div>
+      </section>
+
+      <section class="card">
+        <div class="card-header">
+          <h2>Site-Specific Mappings</h2>
+          <button id="add-site-btn" class="btn primary">Add Site</button>
+        </div>
+        <p class="desc">These shortcuts only work on the specified domains.</p>
+        <div id="site-mappings-list" class="site-list"></div>
+      </section>
+      <section class="card">
+        <div class="card-header">
+          <h2>Protected Sites</h2>
+          <button id="add-protected-btn" class="btn primary">Add Protected</button>
+        </div>
+        <p class="desc">Prevent accidental tab closing (e.g. via Ctrl+W) on these domains.</p>
+        <div id="protected-sites-list" class="mappings-list"></div>
+      </section>
+    </main>
+
+    <div id="toast" class="toast">Settings saved successfully!</div>
+  </div>
+  <script src="options.js"></script>
+</body>
+
+</html>
