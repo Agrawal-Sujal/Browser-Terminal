@@ -11,8 +11,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["content.css"],
-      "js": ["content.js"],
+      "css": ["css/content.css"],
+      "js": [
+        "js/content/terminal.js",
+        "js/content/protection.js",
+        "js/content/notes.js",
+        "js/content/timers.js",
+        "js/content/main.js"
+      ],
       "exclude_matches": [
         "*://chrome.google.com/webstore/*",
         "*://chromewebstore.google.com/*"
